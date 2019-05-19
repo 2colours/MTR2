@@ -35,7 +35,7 @@ const names = {
 		["Károly", "Karola", "Tamás"],
 		["Adél", "Valér"],
 		["Martina", "Gerda", "Jácinta"],
-		["Marcella", "János"],
+		["Marcella", "János"]
 	],
 	2: [
 		["Ignác", "Brigitta", "Kincső"],
@@ -66,7 +66,7 @@ const names = {
 		["Géza", "Cézár", "Vanda"],
 		["Edina", "Viktor", "Győző"],
 		["Ákos", "Bátor", "Gábor"],
-		["Elemér", "Oszvald", "Román"],
+		["Elemér", "Oszvald", "Román"]
 	],
 	3: [
 		["Albin", "Albina", "Leonita", "Lea"],
@@ -99,7 +99,7 @@ const names = {
 		["Gedeon", "Johanna"],
 		["Auguszta", "Bertold"],
 		["Zalán"],
-		["Árpád", "Benjámin", "Benő"],
+		["Árpád", "Benjámin", "Benő"]
 	],
 	4: [
 		["Hugó", "Agád"],
@@ -131,7 +131,7 @@ const names = {
 		["Zita", "Mariann", "Anasztáz"],
 		["Valéria", "Péter"],
 		["Péter", "Katalin", "Roberta"],
-		["Katalin", "Kitti", "Zsófia", "Piusz"],
+		["Katalin", "Kitti", "Zsófia", "Piusz"]
 	],
 	5: [
 		["Fülöp", "Jakab", "Zsaklin", "Jefte", "József"],
@@ -164,7 +164,7 @@ const names = {
 		["Emil", "Csanád", "Vilmos"],
 		["Magdolna", "Magda", "Ervin", "Léna"],
 		["Janka", "Zsanett", "Johanna", "Nándor"],
-		["Angéla", "Petronella"],
+		["Angéla", "Petronella"]
 	],
 	6: [
 		["Tünde", "Jusztinusz"],
@@ -196,7 +196,7 @@ const names = {
 		["László", "Sámson"],
 		["Levente", "Irén", "Iréneusz"],
 		["Péter", "Pál", "Emőke", "Judit", "Petra", "Szulamit", "Ivett"],
-		["Pál"],
+		["Pál"]
 	],
 	7: [
 		["Tihamér", "Annamária", "Olivér", "Áron"],
@@ -229,7 +229,7 @@ const names = {
 		["Szabolcs", "Alina", "Ince", "Győző"],
 		["Márta", "Flóra"],
 		["Judit", "Xénia", "Péter"],
-		["Oszkár", "Ignác", "Bató"],
+		["Oszkár", "Ignác", "Bató"]
 	],
 	8: [
 		["Boglárka", "Nimród", "Alfonz"],
@@ -262,7 +262,7 @@ const names = {
 		["Ágoston", "Mózes"],
 		["Beatrix", "Erna"],
 		["Rózsa", "Félix", "Letícia"],
-		["Erika", "Bella", "Arisztid"],
+		["Erika", "Bella", "Arisztid"]
 	],
 	9: [
 		["Egyed", "Egon", "Noémi", "Tamara"],
@@ -294,7 +294,7 @@ const names = {
 		["Adalbert", "Vince"],
 		["Vencel", "Salamon"],
 		["Mihály", "Gábor", "Rafael", "Mirabella"],
-		["Jeromos", "Honória", "Hunor"],
+		["Jeromos", "Honória", "Hunor"]
 	],
 	10: [
 		["Malvin", "Teréz"],
@@ -327,7 +327,7 @@ const names = {
 		["Simon", "Szimonetta", "Szimóna", "Júdás", "Tádé"],
 		["Nárcisz", "Melinda", "Őzike"],
 		["Alfonz", "Zenóbia"],
-		["Farkas", "Rodrigó", "Wolfgang"],
+		["Farkas", "Rodrigó", "Wolfgang"]
 	],
 	11: [
 		["Marianna"],
@@ -359,7 +359,7 @@ const names = {
 		["Virgil", "Virgínia"],
 		["Stefánia", "Jakab"],
 		["Taksony", "Ilma", "Filoména"],
-		["András", "Andor", "Andrea"],
+		["András", "Andor", "Andrea"]
 	],
 	12: [
 		["Elza", "Natália", "Blanka", "Bonita"],
@@ -392,6 +392,6 @@ const names = {
 		["Kamilla", "Apor"],
 		["Tamás", "Tamara"],
 		["Dávid", "Hunor", "Libériusz"],
-		["Szilveszter", "Donáta"],
+		["Szilveszter", "Donáta"]
 	]
 };
