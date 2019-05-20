@@ -48,7 +48,6 @@ namespace MTR2.Web
 
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
-
 			app.UseMvc();
 		}
 	}
