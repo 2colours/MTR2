@@ -70,19 +70,18 @@ body {
 
 
 #sidebar {
-	min-width: 200px;
 	padding: 0.5rem 1rem;
 	height: 100vh;
 	position: fixed;
 	z-index: 999;
 	transition: all 0.3s;
-	margin-left: 0px;
+	margin-left: 0;
 	background-color: #ac4142;
 	color: white;
 }
 
 	#sidebar.active {
-		margin-left: -300px;
+		margin-left: -1000px;
 	}
 
 a[data-toggle="collapse"] {
@@ -92,7 +91,7 @@ a[data-toggle="collapse"] {
 
 @media (max-width: 768px) {
 	#sidebar {
-		margin-left: -250px;
+		margin-left: -1000px;
 	}
 
 		#sidebar.active {
