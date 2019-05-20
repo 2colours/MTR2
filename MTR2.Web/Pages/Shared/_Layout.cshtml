@@ -23,7 +23,7 @@
 		<!-- Sidebar -->
 		<nav id="sidebar">
 			<div class="sidebar-header">
-				<h3>Bootstrap Sidebar</h3>
+				<h3><button type="button" id="sidebarHide" class="btn btn-info fas fa-align-justify"></button>Bootstrap Sidebar</h3>
 			</div>
 
 		</nav>
@@ -32,7 +32,7 @@
 		<div id="content">
 			<header>
 				<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-					<button type="button" id="sidebarCollapse" class="btn btn-info fas fa-align-justify"></button>
+					<button type="button" id="sidebarShow" class="btn btn-info fas fa-align-justify"></button>
 
 					<!-- Links -->
 					<ul class="navbar-nav">
@@ -99,10 +99,13 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 
-			$('#sidebarCollapse').on('click', function () {
+			$('#sidebarShow').on('click', function () {
 				$('#sidebar').toggleClass('active');
 			});
-
+			$('#sidebarHide').on('click', function () {
+				$('#sidebar').toggleClass('active');
+			});
+			
 		});
 	</script>
 	@RenderSection("Scripts", required: false)
