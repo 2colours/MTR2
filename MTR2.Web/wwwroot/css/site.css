@@ -82,7 +82,7 @@ body {
 }
 
 	#sidebar.active {
-		margin-left: -250px;
+		margin-left: -300px;
 	}
 
 a[data-toggle="collapse"] {
