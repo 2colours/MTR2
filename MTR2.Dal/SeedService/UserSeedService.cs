@@ -1,14 +1,14 @@
-﻿using BookShop.Dal.Entities;
-using BookShop.Dal.SeedInterfaces;
-using BookShop.Dal.Users;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using MTR2.Dal.Entities;
+using MTR2.Dal.SeedInterfaces;
+using MTR2.Dal.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookShop.Dal.SeedService
+namespace MTR2.Dal.SeedService
 {
 	public class UserSeedService : IUserSeedService
 	{
@@ -21,7 +21,7 @@ namespace BookShop.Dal.SeedService
 			{
 				var user = new User
 				{
-					Email = "admin@bookshop.hu",
+					Email = "admin@mtr2.hu",
 					UserName = "admin",
 					SecurityStamp = Guid.NewGuid().ToString(),
 					Name = "Adminisztrátor"
