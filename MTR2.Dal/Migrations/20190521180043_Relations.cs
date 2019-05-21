@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MTR2.Dal.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Relations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,21 @@ namespace MTR2.Dal.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RepoArticles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    Order = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RepoArticles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,37 +194,60 @@ namespace MTR2.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RepoArticles",
+                name: "IktaItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    Content = table.Column<string>(nullable: true),
-                    Order = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true),
-                    UserId1 = table.Column<int>(nullable: true)
+                    UserId = table.Column<int>(nullable: false),
+                    RepoArticleId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RepoArticles", x => x.Id);
+                    table.PrimaryKey("PK_IktaItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RepoArticles_Users_UserId",
+                        name: "FK_IktaItems_RepoArticles_RepoArticleId",
+                        column: x => x.RepoArticleId,
+                        principalTable: "RepoArticles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_IktaItems_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TodoItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<int>(nullable: false),
+                    RepoArticleId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TodoItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RepoArticles_Users_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_TodoItems_RepoArticles_RepoArticleId",
+                        column: x => x.RepoArticleId,
+                        principalTable: "RepoArticles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TodoItems_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "RepoArticles",
-                columns: new[] { "Id", "Content", "Order", "Title", "UserId", "UserId1" },
+                columns: new[] { "Id", "Content", "Order", "Title" },
                 values: new object[] { 1, @"---
 layout: page
 title: The Alphabet & Vowel Harmony
@@ -290,11 +328,11 @@ If the word is only one-syllable *and* contains only `i` or `í` then it can be 
 * `híd` - (considered back-vowelled word)
 
 That's it for now. Check out [wikipedia's article on pronunciation](https://en.wiktionary.org/wiki/Appendix:Hungarian_pronunciation_assimilation) for more information.
-", 1, "ABC + Vowel Harmony", null, null });
+", 1, "ABC + Vowel Harmony" });
 
             migrationBuilder.InsertData(
                 table: "RepoArticles",
-                columns: new[] { "Id", "Content", "Order", "Title", "UserId", "UserId1" },
+                columns: new[] { "Id", "Content", "Order", "Title" },
                 values: new object[] { 2, @"
 ---
 layout: page
@@ -368,7 +406,7 @@ Naturally because phrases have been introduced, the list will be long, but event
 * The use of `nem` and `nincs` for [negation](https://magyartanulas.github.io/negation/)
 * The use of `-be` which is a [locative](https://magyartanulas.github.io/locatives/)
 
-", 2, "Phrases", null, null });
+", 2, "Phrases" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -403,14 +441,24 @@ Naturally because phrases have been introduced, the list will be long, but event
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RepoArticles_UserId",
-                table: "RepoArticles",
+                name: "IX_IktaItems_RepoArticleId",
+                table: "IktaItems",
+                column: "RepoArticleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IktaItems_UserId",
+                table: "IktaItems",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RepoArticles_UserId1",
-                table: "RepoArticles",
-                column: "UserId1");
+                name: "IX_TodoItems_RepoArticleId",
+                table: "TodoItems",
+                column: "RepoArticleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TodoItems_UserId",
+                table: "TodoItems",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -446,10 +494,16 @@ Naturally because phrases have been introduced, the list will be long, but event
                 name: "BlogArticles");
 
             migrationBuilder.DropTable(
-                name: "RepoArticles");
+                name: "IktaItems");
+
+            migrationBuilder.DropTable(
+                name: "TodoItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "RepoArticles");
 
             migrationBuilder.DropTable(
                 name: "Users");

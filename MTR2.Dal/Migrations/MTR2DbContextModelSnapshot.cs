@@ -56,7 +56,7 @@ namespace MTR2.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("IktaItem");
+                    b.ToTable("IktaItems");
                 });
 
             modelBuilder.Entity("MTR2.Dal.Entities.RepoArticle", b =>
@@ -261,7 +261,7 @@ Naturally because phrases have been introduced, the list will be long, but event
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("TodoItem");
+                    b.ToTable("TodoItems");
                 });
 
             modelBuilder.Entity("MTR2.Dal.Entities.User", b =>

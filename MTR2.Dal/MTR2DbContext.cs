@@ -14,6 +14,8 @@ namespace MTR2.Dal
 			=> _seedService = seedService;
 		public DbSet<RepoArticle> RepoArticles { get; set; }
 		public DbSet<BlogArticle> BlogArticles { get; set; }
+		public DbSet<TodoItem> TodoItems { get; set; }
+		public DbSet<IktaItem> IktaItems { get; set; }
 		//TODO add quiz
 
 

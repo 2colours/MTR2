@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MTR2.Dal.Migrations
 {
     [DbContext(typeof(MTR2DbContext))]
-    [Migration("20190521144022_Initial")]
-    partial class Initial
+    [Migration("20190521180043_Relations")]
+    partial class Relations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,25 @@ namespace MTR2.Dal.Migrations
                     b.ToTable("BlogArticles");
                 });
 
+            modelBuilder.Entity("MTR2.Dal.Entities.IktaItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RepoArticleId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RepoArticleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("IktaItems");
+                });
+
             modelBuilder.Entity("MTR2.Dal.Entities.RepoArticle", b =>
                 {
                     b.Property<int>("Id")
@@ -54,15 +73,7 @@ namespace MTR2.Dal.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int?>("UserId");
-
-                    b.Property<int?>("UserId1");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("RepoArticles");
 
@@ -236,6 +247,25 @@ Naturally because phrases have been introduced, the list will be long, but event
                         });
                 });
 
+            modelBuilder.Entity("MTR2.Dal.Entities.TodoItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RepoArticleId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RepoArticleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TodoItems");
+                });
+
             modelBuilder.Entity("MTR2.Dal.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -406,15 +436,30 @@ Naturally because phrases have been introduced, the list will be long, but event
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("MTR2.Dal.Entities.RepoArticle", b =>
+            modelBuilder.Entity("MTR2.Dal.Entities.IktaItem", b =>
                 {
-                    b.HasOne("MTR2.Dal.Entities.User")
-                        .WithMany("Iktas")
-                        .HasForeignKey("UserId");
+                    b.HasOne("MTR2.Dal.Entities.RepoArticle", "RepoArticle")
+                        .WithMany()
+                        .HasForeignKey("RepoArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("MTR2.Dal.Entities.User")
-                        .WithMany("Todos")
-                        .HasForeignKey("UserId1");
+                    b.HasOne("MTR2.Dal.Entities.User", "User")
+                        .WithMany("IktaItems")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MTR2.Dal.Entities.TodoItem", b =>
+                {
+                    b.HasOne("MTR2.Dal.Entities.RepoArticle", "RepoArticle")
+                        .WithMany()
+                        .HasForeignKey("RepoArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MTR2.Dal.Entities.User", "User")
+                        .WithMany("TodoItems")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
