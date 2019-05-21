@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MTR2.Dal.Users
 {
-	class Roles
+	public class Roles
 	{
 		public const string Administrators = nameof(Administrators);
 	}
