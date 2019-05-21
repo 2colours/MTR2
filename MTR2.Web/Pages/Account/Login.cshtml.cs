@@ -23,7 +23,7 @@ namespace MTR2.Web.Pages.Account
 
 		public class InputModel
 		{
-			[Display(Name = "Felhasználónév"), Required(ErrorMessage = "A felhasználónév megadása		   kötelező")]
+			[Display(Name = "Felhasználónév"), Required(ErrorMessage = "A felhasználónév megadása kötelező")]
 			public string UserName { get; set; }
 			[Display(Name = "Jelszó"), Required(ErrorMessage = "A jelszó megadása kötelező"), DataType(DataType.Password)]
 			public string Password { get; set; }
@@ -52,28 +52,7 @@ namespace MTR2.Web.Pages.Account
 			}
 			return Page();
 		}
-		public IActionResult OnPostMicrosoftLogin()
-		{
-			return Challenge(SignInManager.ConfigureExternalAuthenticationProperties("Microsoft", Url.Page("./Login", "MicrosoftCallback")), "Microsoft");
-		}
-		public async Task<IActionResult> OnGetMicrosoftCallbackAsync(string returnUrl = null, string remoteError = null)
-		{
-			if (remoteError != null)
-				return Error(new[] { remoteError });
-			var info = await SignInManager.GetExternalLoginInfoAsync();
-			if (info == null)
-				return RedirectToPage("./Login");
-			var result = await SignInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
-			if (!result.Succeeded) {
-				var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-				var user = new User { UserName = email, Email = email, SecurityStamp = Guid.NewGuid().ToString() };
-				var createUserResult = await UserManager.CreateAsync(user);
-				if (createUserResult.Succeeded)
-					return Error(createUserResult.Errors.Select(e => e.Description));
-				await SignInManager.SignInAsync(user, false);
-			}
-			return RedirectToPage("/Index");
-		}
+		
 
 		private IActionResult Error(IEnumerable<string> errors)
 		{
