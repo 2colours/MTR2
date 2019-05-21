@@ -10,7 +10,7 @@ namespace MTR2.Dal.Entities
 
 		public ICollection<BlogArticle> Comments { get; set; }
 		public string Name { get; set; }
-		public ICollection<RepoArticle> Todos { get; set; }
-		public ICollection<RepoArticle> Iktas { get; set; }
+		public ICollection<TodoItem> TodoItems { get; set; }
+		public ICollection<IktaItem> IktaItems { get; set; }
 	}
 }
