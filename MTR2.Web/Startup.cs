@@ -10,6 +10,7 @@ using MTR2.Dal;
 using MTR2.Dal.Entities;
 using MTR2.Dal.SeedInterfaces;
 using MTR2.Dal.SeedService;
+using MTR2.Dal.Services;
 
 namespace MTR2.Web
 {
@@ -27,6 +28,7 @@ namespace MTR2.Web
 		{
 			services.AddScoped<IRoleSeedService, RoleSeedService>();
 			services.AddScoped<IUserSeedService, UserSeedService>();
+			services.AddScoped<RepoArticleService>();
 			services.AddIdentity<User, IdentityRole<int>>()
 							.AddEntityFrameworkStores<MTR2DbContext>()
 							.AddDefaultTokenProviders();
