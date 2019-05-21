@@ -69,9 +69,26 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">Quiz</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Login</a>
-						</li>
+						@if (!User.Identity.IsAuthenticated)
+						{
+							<li class="nav-item">
+								<a class="nav-link" asp-page="/Account/Login">Login</a>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+									@User.Identity.Name
+								</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">asd</a>
+									<a class="dropdown-item" href="#">asd</a>
+									<a class="dropdown-item" asp-controller="Account"
+								   asp-action="LogOut">Logout</a>
+								</div>
+							</li>
+						}
 					</ul>
 				</nav>
 			</header>

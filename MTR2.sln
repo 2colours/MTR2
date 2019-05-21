@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTR2.Web", "MTR2.Web\MTR2.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTR2.Dal", "MTR2.Dal\MTR2.Dal.csproj", "{9E288CBD-425C-4D3C-8F8D-3A4505A4EB67}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShop.Web", "..\BookShop\BookShop.Web\BookShop.Web.csproj", "{5BA5C85B-B2D6-4E45-A06E-323D7CCCB90A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9E288CBD-425C-4D3C-8F8D-3A4505A4EB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E288CBD-425C-4D3C-8F8D-3A4505A4EB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E288CBD-425C-4D3C-8F8D-3A4505A4EB67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA5C85B-B2D6-4E45-A06E-323D7CCCB90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA5C85B-B2D6-4E45-A06E-323D7CCCB90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA5C85B-B2D6-4E45-A06E-323D7CCCB90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA5C85B-B2D6-4E45-A06E-323D7CCCB90A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
