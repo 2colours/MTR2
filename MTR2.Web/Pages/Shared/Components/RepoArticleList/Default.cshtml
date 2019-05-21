@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MTR2.Dal.Dtos.RepoArticleDto>
+
+<nav id="ref-articles" class="mt-3">
+	@foreach (var repoArticle in Model)
+	{
+		<a href="#">@repoArticle.Order @repoArticle.Title</a>
+	}
+</nav>

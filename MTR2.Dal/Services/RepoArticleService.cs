@@ -13,12 +13,12 @@ namespace MTR2.Dal.Services
 			DbContext = dbContext;
 		}
 		public MTR2DbContext DbContext { get; }
-		public IEnumerable<RepoArticleDto> GeRepoArticles() => DbContext.RepoArticles.Select(b => new RepoArticleDto
+		public IEnumerable<RepoArticleDto> GetRepoArticles() => DbContext.RepoArticles.Select(r => new RepoArticleDto
 		{
-			Content = b.Content,
-			Id = b.Id,
-			Order = b.Order,
-			Title = b.Title
-		});
+			Content = r.Content,
+			Id = r.Id,
+			Order = r.Order,
+			Title = r.Title
+		}).OrderBy(r => r.Order);
 	}
 }
