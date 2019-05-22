@@ -7,25 +7,37 @@
 			<table id="repo-article-list" class="table">
 				<thead>
 					<tr class="row">
-						<th class="col-sm-8 table-info">Title</th>
-						<th class="col-sm-2 table-warning">Edit</th>
-						<th class="col-sm-2 table-danger">Delete</th>
+						@if (Model.IsAdmin)
+						{
+							<th class="col-sm-8 table-info">Title</th>
+							<th class="col-sm-2 table-warning">Edit</th>
+							<th class="col-sm-2 table-danger">Delete</th>
+						}
+						else
+						{
+							<th class="col-sm-12 table-info">Title</th>
+						}
 					</tr>
 				</thead>
 				<tbody>
 					@foreach (var repoArticle in Model.RepoArticles)
 					{
 						<tr class="row">
-							<td class="col-sm-8 border">
-								<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Title</a>
-							</td>
 							@if (Model.IsAdmin)
 							{
+								<td class="col-sm-8 border">
+									<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Title</a>
+								</td>
 								<td class="col-sm-2 border">
 									<a class="fas fa-pencil-alt" asp-page="EditRepoArticle" asp-route-id="@repoArticle.Id"></a>
 								</td>
 								<td class="col-sm-2 border">
 									<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
+								</td>
+							}
+							else {
+								<td class="col-sm-12 border">
+									<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Title</a>
 								</td>
 							}
 						</tr>

@@ -18,13 +18,11 @@ namespace MTR2.Web.Pages
 			RepoArticleService = repoArticleService;
 		}
 		public RepoArticleService RepoArticleService { get; }
-		public void OnGet()
+		public ActionResult OnGet()
 		{
 			if (!PageContext.HttpContext.User.IsInRole(Roles.Administrators))
-			{
-				RedirectToPage("/Repo");
-				return;
-			}
+				return RedirectToPage("/Repo");
+			return Page();
 
 		}
 	}
