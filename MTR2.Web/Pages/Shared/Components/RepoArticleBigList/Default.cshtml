@@ -10,12 +10,9 @@
 			@if (Model.IsAdmin)
 			{
 				<td>
-					<button>
-						<span class="fas fa-pencil-alt"></span>
-					</button>
+					<a class="fas fa-pencil-alt" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
 				</td>
 				<td>
-
 					<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
 				</td>
 			}
