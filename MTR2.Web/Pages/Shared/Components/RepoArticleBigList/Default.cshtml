@@ -10,7 +10,7 @@
 			@if (Model.IsAdmin)
 			{
 				<td>
-					<a class="fas fa-pencil-alt" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
+					<a class="fas fa-pencil-alt" asp-page="EditRepoArticle" asp-route-id="@repoArticle.Id"></a>
 				</td>
 				<td>
 					<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>

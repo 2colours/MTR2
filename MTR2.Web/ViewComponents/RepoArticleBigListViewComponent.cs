@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace MTR2.Web.ViewComponents
@@ -23,7 +24,7 @@ namespace MTR2.Web.ViewComponents
 		}
 
 		public RepoArticleService RepoArticleService { get; }
-		public IViewComponentResult Invoke(ClaimsPrincipal user)
+		public IViewComponentResult Invoke(IPrincipal user)
 		{
 			return View(new RepoArticleBigListModel
 			{

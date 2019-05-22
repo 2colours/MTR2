@@ -31,5 +31,9 @@ namespace MTR2.Dal.Services
 			DbContext.RepoArticles.Remove(repoArticle);
 			DbContext.SaveChanges();
 		}
+		public void EditRepoArticle()
+		{
+DbContext.RepoArticles.Update()
+		}
 	}
 }
