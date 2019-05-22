@@ -23,11 +23,11 @@ namespace MTR2.Web.Pages.Account
 
 		public class InputModel
 		{
-			[Display(Name = "Felhasználónév"), Required(ErrorMessage = "A felhasználónév megadása kötelező")]
+			[Display(Name = "Username"), Required(ErrorMessage = "Username is mandatory")]
 			public string UserName { get; set; }
-			[Display(Name = "Jelszó"), Required(ErrorMessage = "A jelszó megadása kötelező"), DataType(DataType.Password)]
+			[Display(Name = "Password"), Required(ErrorMessage = "Password is mandatory"), DataType(DataType.Password)]
 			public string Password { get; set; }
-			[Display(Name = "Maradjak belépve")]
+			[Display(Name = "Keep me signed in")]
 			public bool KeepMeSignedIn { get; set; }
 		}
 

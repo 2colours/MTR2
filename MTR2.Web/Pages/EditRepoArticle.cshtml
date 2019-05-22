@@ -1,7 +1,24 @@
 ﻿@page
 @model MTR2.Web.Pages.EditRepoArticleModel
 @{
-    ViewData["Title"] = $"Edit Article - ${Model.RepoArticle.Title}";
+	ViewData["Title"] = $"Edit Article - ${Model.RepoArticle.Title}";
 }
 
-<h1>EditRepoArticle</h1>
+<h1>EditRepoArticle</h1>>
+
+	
+<div class="row">
+	<form method="post" class="col-md-6 m-auto">
+		<div class="form-group">
+			<label asp-for="Input.Title"></label>
+			<input asp-for="Input.Title" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label asp-for="Input.Password"></label>
+			<input asp-for="Input.Password" class="form-control" />
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Bejelentkezés</button>
+		</div>
+	</form>
+</div>

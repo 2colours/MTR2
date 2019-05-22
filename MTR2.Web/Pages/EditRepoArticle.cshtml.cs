@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -28,5 +29,15 @@ namespace MTR2.Web.Pages
 			return Page();
 
 		}
+		public class InputModel
+		{
+			[Display(Name = "Title"), Required(ErrorMessage = "Articles must have a title")]
+			public string Title { get; set; }
+			[Display(Name = "Content")]
+			public string Content { get; set; }
+		}
+
+		[BindProperty]
+		public InputModel Input { get; set; }
 	}
 }
