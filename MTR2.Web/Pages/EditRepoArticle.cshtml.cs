@@ -13,16 +13,14 @@ namespace MTR2.Web.Pages
 {
 	public class EditRepoArticleModel : PageModel
 	{
-		public EditRepoArticleModel(IPrincipal user, RepoArticleService repoArticleService)
+		public EditRepoArticleModel(RepoArticleService repoArticleService)
 		{
-			Principal = user;
 			RepoArticleService = repoArticleService;
 		}
 		public RepoArticleService RepoArticleService { get; }
-		public IPrincipal Principal { get; }
 		public void OnGet()
 		{
-			if (!Principal.IsInRole(Roles.Administrators))
+			if (!PageContext.HttpContext.User.IsInRole(Roles.Administrators))
 			{
 				RedirectToPage("/Repo");
 				return;
