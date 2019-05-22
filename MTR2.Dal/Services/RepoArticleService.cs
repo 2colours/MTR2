@@ -33,7 +33,7 @@ namespace MTR2.Dal.Services
 		}
 		public void EditRepoArticle()
 		{
-DbContext.RepoArticles.Update()
+			//DbContext.RepoArticles.Update()
 		}
 	}
 }
