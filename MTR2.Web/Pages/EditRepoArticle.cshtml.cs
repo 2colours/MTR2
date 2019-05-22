@@ -29,15 +29,16 @@ namespace MTR2.Web.Pages
 			return Page();
 
 		}
-		public class InputModel
+
+		public ActionResult OnPost(string title,string content)
 		{
-			[Display(Name = "Title"), Required(ErrorMessage = "Articles must have a title")]
-			public string Title { get; set; }
-			[Display(Name = "Content")]
-			public string Content { get; set; }
+			if (!PageContext.HttpContext.User.IsInRole(Roles.Administrators))
+				return RedirectToPage("/Repo");
+			RepoArticle.Title = title;
+			RepoArticle.Content = content;
+			RepoArticleService.EditRepoArticle(RepoArticle);
+			return Page();
 		}
 
-		[BindProperty]
-		public InputModel Input { get; set; }
 	}
 }

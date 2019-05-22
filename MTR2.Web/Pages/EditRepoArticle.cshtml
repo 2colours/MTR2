@@ -1,32 +1,31 @@
 ﻿@page
 @model MTR2.Web.Pages.EditRepoArticleModel
 @{
-	ViewData["Title"] = $"Edit Article - ${Model.RepoArticle.Title}";
+	ViewData["Title"] = $"Edit Article - {Model.RepoArticle.Title}";
 }
 
-<h1>EditRepoArticle</h1>>
+<h1>EditRepoArticle</h1>
 
 
 <div class="row">
-	<form method="post" class="col-md-6 m-auto">
+	<form method="post" class="col-md-12">
 		<div class="form-group">
-			<label asp-for="Input.Title"></label>
-			<input asp-for="Input.Title" class="form-control" value="@Model.RepoArticle.Title" />
+			<label for="Title_bind">Title</label>
+			<input id="Title_bind" name="Title" class="form-control" value="@Model.RepoArticle.Title" />
 		</div>
 		<div class="form-group">
-			<label asp-for="Input.Content"></label>
-			<textarea id="repo-article-content" asp-for="Input.Content" class="form-control"></textarea>
+			<label for="Content_bind"></label>
+			<textarea id="Content_bind" name="Content" class="form-control">@Model.RepoArticle.Content</textarea>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Save</button>
 		</div>
 	</form>
 </div>
-<textarea id="demo"></textarea>
 @section Scripts {
 	<script src="~/simplemde/simplemde.min.js"></script>
 	<script>
-		var simplemde = new SimpleMDE({ element: document.getElementById("demo") });
+				let simplemde = new SimpleMDE();
 	</script>
 }
 @section Styles {
