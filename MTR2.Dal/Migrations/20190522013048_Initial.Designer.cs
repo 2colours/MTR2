@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MTR2.Dal.Migrations
 {
     [DbContext(typeof(MTR2DbContext))]
-    [Migration("20190522010325_Initial")]
+    [Migration("20190522013048_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

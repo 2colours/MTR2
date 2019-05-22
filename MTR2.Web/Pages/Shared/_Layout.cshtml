@@ -83,8 +83,16 @@
 									@User.Identity.Name
 								</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">asd</a>
-									<a class="dropdown-item" href="#">asd</a>
+									@if (User.IsInRole(MTR2.Dal.Users.Roles.Administrators))
+									{
+										<a class="dropdown-item" href="#">User preview</a>
+										<a class="dropdown-item" href="#">Admin preview</a>
+									}
+									else
+									{
+										<a class="dropdown-item" href="#">Todo articles</a>
+										<a class="dropdown-item" href="#">Learnt articles</a>
+									}
 									<a class="dropdown-item" asp-controller="Account"
 									   asp-action="LogOut">Logout</a>
 								</div>

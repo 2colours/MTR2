@@ -32,6 +32,17 @@ namespace MTR2.Dal.SeedService
 				if (!createResult.Succeeded || !addToRoleResult.Succeeded)
 					throw new ApplicationException($"Administrator could not be created: " +
 							$"{string.Join(", ", createResult.Errors.Concat(addToRoleResult.Errors).Select(e => e.Description))}");
+				user = new User
+				{
+					Email = "user@mtr2.hu",
+					UserName = "user",
+					SecurityStamp = Guid.NewGuid().ToString(),
+					Name = "Felhasználó"
+				};
+				createResult = await _userManager.CreateAsync(user, "$User123");
+				if (!createResult.Succeeded)
+					throw new ApplicationException($"User could not be created: " +
+							$"{string.Join(", ", createResult.Errors.Select(e => e.Description))}");
 			}
 		}
 	}
