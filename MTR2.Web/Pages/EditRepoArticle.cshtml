@@ -15,17 +15,21 @@
 		</div>
 		<div class="form-group">
 			<label asp-for="Input.Content"></label>
-			<textarea asp-for="Input.Content" class="form-control"></textarea>
+			<textarea id="repo-article-content" asp-for="Input.Content" class="form-control"></textarea>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Save</button>
 		</div>
 	</form>
 </div>
-
+<textarea id="demo"></textarea>
 @section Scripts {
 	<script src="~/simplemde/simplemde.min.js"></script>
 	<script>
-			var simplemde = new SimpleMDE();
+		var simplemde = new SimpleMDE({ element: document.getElementById("demo") });
 	</script>
+}
+@section Styles {
+	<link rel="stylesheet" href="~/simplemde/simplemde.min.css">
+
 }
