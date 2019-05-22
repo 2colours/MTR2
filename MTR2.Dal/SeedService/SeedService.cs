@@ -13,12 +13,7 @@ namespace MTR2.Dal.SeedService
 new RepoArticle() {
 				  Id=1,
 				Order=1,
-Content=@"---
-layout: page
-title: The Alphabet & Vowel Harmony
----
-
-## The Alphabet
+Content=@"## The Alphabet
 ---
 
 The best place to start with learning any language is the alphabet. With 14 vowels and 30 consonants,
@@ -99,13 +94,7 @@ Title="ABC + Vowel Harmony"
 new RepoArticle {
 Id=2,
 Order=2,
-Content=@"
----
-layout: page
-title: Phrases
----
-
-## Phrases & Words
+Content=@"## Phrases & Words
 ---
 
 Now that you've mastered pronunciation, here are some basic phrases and words to get you started! Be aware that everything here is simplified and not much is explained, but if you keep coming back to here, everything will start to click.

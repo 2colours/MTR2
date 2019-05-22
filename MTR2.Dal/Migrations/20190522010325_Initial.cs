@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MTR2.Dal.Migrations
 {
-    public partial class Relations : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -248,12 +248,7 @@ namespace MTR2.Dal.Migrations
             migrationBuilder.InsertData(
                 table: "RepoArticles",
                 columns: new[] { "Id", "Content", "Order", "Title" },
-                values: new object[] { 1, @"---
-layout: page
-title: The Alphabet & Vowel Harmony
----
-
-## The Alphabet
+                values: new object[] { 1, @"## The Alphabet
 ---
 
 The best place to start with learning any language is the alphabet. With 14 vowels and 30 consonants,
@@ -333,13 +328,7 @@ That's it for now. Check out [wikipedia's article on pronunciation](https://en.w
             migrationBuilder.InsertData(
                 table: "RepoArticles",
                 columns: new[] { "Id", "Content", "Order", "Title" },
-                values: new object[] { 2, @"
----
-layout: page
-title: Phrases
----
-
-## Phrases & Words
+                values: new object[] { 2, @"## Phrases & Words
 ---
 
 Now that you've mastered pronunciation, here are some basic phrases and words to get you started! Be aware that everything here is simplified and not much is explained, but if you keep coming back to here, everything will start to click.
