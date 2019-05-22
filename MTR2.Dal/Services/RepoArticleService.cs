@@ -36,7 +36,9 @@ namespace MTR2.Dal.Services
 			var article = DbContext.RepoArticles.Where(a=>a.Id==repoArticle.Id).First();
 			if (article == null)
 				return;
-			DbContext.RepoArticles.Update(article);
+			article.Content = repoArticle.Content;
+			article.Title = repoArticle.Title;
+			article.Order = repoArticle.Order;
 			DbContext.SaveChanges();
 		}
 	}

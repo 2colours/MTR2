@@ -9,6 +9,7 @@
 
 <div class="row">
 	<form method="post" class="col-md-12">
+		<input type="hidden" name="Id" value="@Model.RepoArticle.Id" />
 		<div class="form-group">
 			<label for="Title_bind">Title</label>
 			<input id="Title_bind" name="Title" class="form-control" value="@Model.RepoArticle.Title" />
@@ -25,7 +26,7 @@
 @section Scripts {
 	<script src="~/simplemde/simplemde.min.js"></script>
 	<script>
-				let simplemde = new SimpleMDE();
+		let simplemde = new SimpleMDE();
 	</script>
 }
 @section Styles {

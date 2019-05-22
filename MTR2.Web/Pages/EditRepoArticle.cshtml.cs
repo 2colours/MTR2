@@ -30,10 +30,11 @@ namespace MTR2.Web.Pages
 
 		}
 
-		public ActionResult OnPost(string title,string content)
+		public ActionResult OnPost(int id,string title,string content)
 		{
 			if (!PageContext.HttpContext.User.IsInRole(Roles.Administrators))
 				return RedirectToPage("/Repo");
+			RepoArticle = RepoArticleService.GetRepoArticle(id);
 			RepoArticle.Title = title;
 			RepoArticle.Content = content;
 			RepoArticleService.EditRepoArticle(RepoArticle);
