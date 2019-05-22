@@ -10,7 +10,7 @@ namespace MTR2.Web.Controllers
 	[Route("[controller]/[action]")]
 	public class PreviewModeController : Controller
 	{
-		private void SetCookie(string key, string value, int? expireTime = null)
+		private void SetCookie(string key, string value, int? expireTime)
 		{
 			CookieOptions option = new CookieOptions();
 			if (expireTime.HasValue)
