@@ -1,8 +1,8 @@
 ﻿@page
 @model MTR2.Web.Pages.RArticleModel
 @{
-    ViewData["Title"] = "RArticle";
+    ViewData["Title"] = Model.RepoArticle.Title;
 }
 
-<h1>RArticle</h1>
+@Model.RepoArticle.Content;
 
