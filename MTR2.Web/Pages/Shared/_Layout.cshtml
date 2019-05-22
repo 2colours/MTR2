@@ -85,8 +85,8 @@
 								<div class="dropdown-menu">
 									@if (User.IsInRole(MTR2.Dal.Users.Roles.Administrators))
 									{
-										<a class="dropdown-item" href="#">User preview</a>
-										<a class="dropdown-item" href="#">Admin preview</a>
+										<a class="dropdown-item" asp-controller="Preview" asp-action="ModeUser">User preview</a>
+										<a class="dropdown-item" asp-controller="Preview" asp-action="ModeAdmin">Admin preview</a>
 									}
 									else
 									{
