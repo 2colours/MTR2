@@ -24,5 +24,12 @@ namespace MTR2.Dal.Services
 		};
 		public IEnumerable<RepoArticleDto> GetRepoArticles() => DbContext.RepoArticles.Select(RepoArticleSelector).OrderBy(r => r.Order);
 		public RepoArticleDto GetRepoArticle(int id) => DbContext.RepoArticles.Where(r => r.Id == id).Select(RepoArticleSelector).FirstOrDefault();
+		public void DeleteRepoArticle(int id) {
+			var repoArticle=DbContext.RepoArticles.Where(r => r.Id == id).First();
+			if (repoArticle == null)
+				return;
+			DbContext.RepoArticles.Remove(repoArticle);
+			DbContext.SaveChanges();
+		}
 	}
 }
