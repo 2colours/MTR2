@@ -3,23 +3,22 @@
 <table id="repo-article-list" class="table-responsive m-auto">
 	@foreach (var repoArticle in Model.RepoArticles)
 	{
-	<tr>
-		<td>
-			<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Order @repoArticle.Title</a>
-		</td>
-	@if (Model.IsAdmin)
-	{
-		<td>
-			<button>
-				<span class="fas fa-pencil-alt"></span>
-			</button>
-		</td>
-		<td>
-			<button >
-				<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
-			</button>
-		</td>
-	}
-	</tr>
+		<tr>
+			<td>
+				<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Order @repoArticle.Title</a>
+			</td>
+			@if (Model.IsAdmin)
+			{
+				<td>
+					<button>
+						<span class="fas fa-pencil-alt"></span>
+					</button>
+				</td>
+				<td>
+
+					<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
+				</td>
+			}
+		</tr>
 	}
 </table>
