@@ -1,21 +1,37 @@
 ﻿@model MTR2.Web.ViewComponents.RepoArticleBigListViewComponent.RepoArticleBigListModel
 
-<table id="repo-article-list" class="table-responsive m-auto">
-	@foreach (var repoArticle in Model.RepoArticles)
-	{
-		<tr>
-			<td>
-				<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Order @repoArticle.Title</a>
-			</td>
-			@if (Model.IsAdmin)
-			{
-				<td>
-					<a class="fas fa-pencil-alt" asp-page="EditRepoArticle" asp-route-id="@repoArticle.Id"></a>
-				</td>
-				<td>
-					<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
-				</td>
-			}
-		</tr>
-	}
-</table>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<table id="repo-article-list" class="table">
+				<thead>
+					<tr class="row">
+						<th class="col-sm-8 table-info">Title</th>
+						<th class="col-sm-2 table-warning">Edit</th>
+						<th class="col-sm-2 table-danger">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var repoArticle in Model.RepoArticles)
+					{
+						<tr class="row">
+							<td class="col-sm-8 border">
+								<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Title</a>
+							</td>
+							@if (Model.IsAdmin)
+							{
+								<td class="col-sm-2 border">
+									<a class="fas fa-pencil-alt" asp-page="EditRepoArticle" asp-route-id="@repoArticle.Id"></a>
+								</td>
+								<td class="col-sm-2 border">
+									<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
+								</td>
+							}
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
