@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MTR2.Web.Controllers
 {
 	[Route("[controller]/[action]")]
-	public class PreviewController : Controller
+	public class PreviewModeController : Controller
 	{
 		private void SetCookie(string key, string value, int? expireTime = null)
 		{
