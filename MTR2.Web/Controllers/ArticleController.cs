@@ -17,10 +17,10 @@ namespace MTR2.Web.Controllers
 			RepoArticleService = repoArticleService;
 		}
 		public RepoArticleService RepoArticleService { get; }
-		public async Task<IActionResult> LogOut()
+		public IActionResult DeleteRepoArticle(int id)
 		{
-			await SignInManager.SignOutAsync();
-			return RedirectToPage("/Index");
+			RepoArticleService.DeleteRepoArticle(id);
+			return RedirectToPage("/Repo");
 		}
 	}
 }

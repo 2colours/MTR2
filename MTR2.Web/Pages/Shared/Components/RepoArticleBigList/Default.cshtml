@@ -15,8 +15,8 @@
 			</button>
 		</td>
 		<td>
-			<button asp-controller="">
-				<span class="fas fa-trash"></span>
+			<button >
+				<a class="fas fa-trash" asp-controller="Article" asp-action="DeleteRepoArticle" asp-route-id="@repoArticle.Id"></a>
 			</button>
 		</td>
 	}
