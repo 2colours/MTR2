@@ -38,6 +38,33 @@ namespace MTR2.Dal.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("BlogArticles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AuthorId = 1,
+                            Content = @"
+## Big Demo article...
+",
+                            CreationDate = new DateTimeOffset(new DateTime(2019, 5, 23, 1, 55, 39, 73, DateTimeKind.Unspecified).AddTicks(9718), new TimeSpan(0, 2, 0, 0, 0)),
+                            Title = "Welcome all!"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AuthorId = 1,
+                            Content = @"
+## Big Demo article...
+
+__asd___asd_
+a
+*a**a**
+eh
+",
+                            CreationDate = new DateTimeOffset(new DateTime(2019, 5, 23, 1, 55, 39, 76, DateTimeKind.Unspecified).AddTicks(9309), new TimeSpan(0, 2, 0, 0, 0)),
+                            Title = "Another post here"
+                        });
                 });
 
             modelBuilder.Entity("MTR2.Dal.Entities.IktaItem", b =>

@@ -8,6 +8,6 @@ namespace MTR2.Dal.SeedInterfaces
     public interface ISeedService
     {
 		IList<RepoArticle> RepoArticles { get; }
-		
+		IList<BlogArticle> BlogArticles { get; }
     }
 }

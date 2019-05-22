@@ -23,6 +23,7 @@ namespace MTR2.Dal
 		{
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.ApplyConfiguration(new RepoArticleEntityConfiguration(_seedService));
+			modelBuilder.ApplyConfiguration(new BlogArticleEntityConfiguration(_seedService));
 			modelBuilder.Entity<User>().ToTable("Users");
 		}
 	}

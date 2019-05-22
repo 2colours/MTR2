@@ -165,5 +165,31 @@ Naturally because phrases have been introduced, the list will be long, but event
 Title="Phrases"
  }
 		}.ToList<RepoArticle>();
+
+		public IList<BlogArticle> BlogArticles { get; } = new[] {
+new BlogArticle() {
+				  AuthorId=1,
+Content=@"
+## Big Demo article...
+",
+CreationDate=DateTime.Now,
+Id=1,
+Title="Welcome all!"
+},
+new BlogArticle() {
+				  AuthorId=1,
+Content=@"
+## Big Demo article...
+
+__asd___asd_
+a
+*a**a**
+eh
+",
+CreationDate=DateTime.Now,
+Id=2,
+Title="Another post here"
+}
+		};
 	}
 }
