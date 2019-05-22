@@ -5,7 +5,7 @@
 		@foreach (var repoArticle in Model)
 		{
 		<li>
-			<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Order @repoArticle.Title</a>
+			<a class="text-white" asp-page="RArticle" asp-route-id="@repoArticle.Id">@(repoArticle.Order). @repoArticle.Title</a>
 		</li>
 		}
 	</ul>
