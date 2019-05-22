@@ -1,0 +1,25 @@
+﻿@model MTR2.Web.ViewComponents.RepoArticleBigListViewComponent.RepoArticleBigListModel
+
+<table id="repo-article-list" class="table-responsive m-auto">
+	@foreach (var repoArticle in Model.RepoArticles)
+	{
+	<tr>
+		<td>
+			<a asp-page="RArticle" asp-route-id="@repoArticle.Id">@repoArticle.Order @repoArticle.Title</a>
+		</td>
+	@if (Model.IsAdmin)
+	{
+		<td>
+			<button>
+				<span class="fas fa-pencil-alt"></span>
+			</button>
+		</td>
+		<td>
+			<button>
+				<span class="fas fa-trash"></span>
+			</button>
+		</td>
+	}
+	</tr>
+	}
+</table>
