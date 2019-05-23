@@ -7,6 +7,7 @@ namespace MTR2.Dal.Dtos
 {
 	public class BlogArticleDto
 	{
+		public int Id { get; set; }
 		public User Author { get; set; }
 		public DateTimeOffset CreationDate { get; set; }
 		public string Title { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MTR2.Web.ViewComponents
 {
-	public class BookHeaderViewComponent : ViewComponent
+	public class BlogArticleHeaderViewComponent : ViewComponent
 	{
 		public IViewComponentResult Invoke(BlogArticleDto bookDto)
 		{

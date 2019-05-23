@@ -15,12 +15,13 @@ namespace MTR2.Dal.Services
 			DbContext = dbContext;
 		}
 		public MTR2DbContext DbContext { get; }
-		public static Expression<Func<BlogArticle, BlogArticleDto>> BlogArticleSelector { get; } = r => new BlogArticleDto
+		public static Expression<Func<BlogArticle, BlogArticleDto>> BlogArticleSelector { get; } = b => new BlogArticleDto
 		{
-			Content = r.Content,
-			Author = r.Author,
-			CreationDate = r.CreationDate,
-			Title = r.Title
+			Content = b.Content,
+			Author = b.Author,
+			CreationDate = b.CreationDate,
+			Title = b.Title,
+			Id=b.Id
 		};
 		public IEnumerable<BlogArticleDto> GetBlogArticles() => DbContext.BlogArticles.Select(BlogArticleSelector).OrderByDescending(r => r.CreationDate);
 		public BlogArticleDto GetBlogArticle(int id) => DbContext.BlogArticles.Where(r => r.Id == id).Select(BlogArticleSelector).FirstOrDefault();

@@ -1,0 +1,36 @@
+﻿@model MTR2.Dal.Dtos.BlogArticleDto
+
+<div class="card h-100">
+	<h4 class="card-header text-center">
+		<a asp-page="BlogPost" asp-route-id="@Model.Id">@Model.Title</a>
+	</h4>
+	<div class="card-body">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="text-center w-100">
+					<a asp-page="Book" asp-route-id="@Model.Id">
+						<img src="~/images/books/covers/@(Model.Id).jpg" class="mw-100" alt="@Model.Title" title="@Model.Title" />
+					</a>
+					<p>
+						@if (Model.DiscountedPrice.HasValue)
+						{
+							<span class="text-danger text-muted">@Model.Price Ft</span>
+							<span class="text-primary">@Model.DiscountedPrice Ft</span>
+						}
+						else
+						{
+							<text>@Model.Price.ToString("N0") Ft</text>
+						}
+					</p>
+					<p class="text-info">@Model.Author</p>
+					<p class="lead">@Model.Headline</p>
+				</div>
+				<hr />
+				<p class="small">
+					@Model.ShortDescription.Substring(0,Math.Min(300,
+Model.ShortDescription.Length))
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
