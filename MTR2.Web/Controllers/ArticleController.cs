@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MTR2.Dal.Dtos;
 using MTR2.Dal.Entities;
 using MTR2.Dal.Services;
 using System;
@@ -21,6 +22,18 @@ namespace MTR2.Web.Controllers
 		{
 			RepoArticleService.DeleteRepoArticle(id);
 			return RedirectToPage("/Repo");
+		}
+		public IActionResult UploadRepoArticle()
+		{
+			var id = RepoArticleService.GetFreeId();
+			RepoArticleService.CreateRepoArticle(new RepoArticleDto
+			{
+				Id = id,
+				Content = "**DUMMY CONTENT**",
+				Order = RepoArticleService.GetRepoArticles().Count() + 1,
+				Title = "New Article"
+			});
+			return RedirectToPage($"/EditRepoArticle?id={id}");
 		}
 	}
 }

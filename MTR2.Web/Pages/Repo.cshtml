@@ -6,4 +6,6 @@
 
 <h1 class="text-center mt-2 mb-2">Repo</h1>
 <vc:repo-article-big-list user="User"></vc:repo-article-big-list>
-
+@if (User.IsInRole(MTR2.Dal.Users.Roles.Administrators)) {
+	<button asp-controller="Article" asp-action="UploadRepoArticle">Upload new</button>
+}

@@ -24,16 +24,33 @@ namespace MTR2.Dal.Services
 		};
 		public IEnumerable<RepoArticleDto> GetRepoArticles() => DbContext.RepoArticles.Select(RepoArticleSelector).OrderBy(r => r.Order);
 		public RepoArticleDto GetRepoArticle(int id) => DbContext.RepoArticles.Where(r => r.Id == id).Select(RepoArticleSelector).FirstOrDefault();
-		public void DeleteRepoArticle(int id) {
-			var repoArticle=DbContext.RepoArticles.Where(r => r.Id == id).First();
+
+		public int GetFreeId()
+		{
+			var maxId = DbContext.RepoArticles.Select(r => r.Id).Max();
+			return maxId + 1;
+		}
+
+		public void CreateRepoArticle(RepoArticleDto repoArticle)
+		{
+			DbContext.RepoArticles.Add((RepoArticle)repoArticle);
+			DbContext.SaveChanges();
+		}
+
+		public void DeleteRepoArticle(int id)
+		{
+			var repoArticle = DbContext.RepoArticles.Where(r => r.Id == id).First();
 			if (repoArticle == null)
 				return;
+			foreach (var toReduce in DbContext.RepoArticles.Where(r=>r.Order>repoArticle.Order)) {
+				toReduce.Order -= 1;
+			}
 			DbContext.RepoArticles.Remove(repoArticle);
 			DbContext.SaveChanges();
 		}
 		public void EditRepoArticle(RepoArticleDto repoArticle)
 		{
-			var article = DbContext.RepoArticles.Where(a=>a.Id==repoArticle.Id).First();
+			var article = DbContext.RepoArticles.Where(a => a.Id == repoArticle.Id).First();
 			if (article == null)
 				return;
 			article.Content = repoArticle.Content;

@@ -46,7 +46,7 @@ namespace MTR2.Web.Pages.Account
 			{
 				var signInResult = await SignInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.KeepMeSignedIn, false);
 				if (!signInResult.Succeeded)
-					ModelState.AddModelError("", "Sikertelen bejelentkezési kísérlet.");
+					ModelState.AddModelError("", "Login failed.");
 				else
 					return RedirectToPage("/Index");
 			}
