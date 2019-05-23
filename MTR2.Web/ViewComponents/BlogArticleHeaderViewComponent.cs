@@ -9,9 +9,9 @@ namespace MTR2.Web.ViewComponents
 {
 	public class BlogArticleHeaderViewComponent : ViewComponent
 	{
-		public IViewComponentResult Invoke(BlogArticleDto bookDto)
+		public IViewComponentResult Invoke(BlogArticleDto postDto)
 		{
-			return View(bookDto);
+			return View(postDto);
 		}
 	}
 }
