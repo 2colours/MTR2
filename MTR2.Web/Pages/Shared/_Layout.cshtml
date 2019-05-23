@@ -129,14 +129,25 @@
 	<script src="~/js/site.js" asp-append-version="true"></script>
 	<script src="~/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.js"></script>
 	<script type="text/javascript">
+		let sideMenuShow = localStorage.getItem('sideMenuShow');
+		sideMenuShow = sideMenuShow && sideMenuShow == 'true';
+		if (sideMenuShow == undefined) {
+			sideMenuShow = true;
+			localStorage.setItem('sideMenuShow', sideMenuShow);
+		}
 		$(document).ready(function () {
-
-			$('#sidebarShow').on('click', function () {
-				$('#sidebar').toggleClass('active');
-			});
-			$('#sidebarHide').on('click', function () {
-				$('#sidebar').toggleClass('active');
-			});
+			let sideBar = $('#sidebar');
+			if (Boolean(sideMenuShow) && !sideBar.hasClass('active'))
+				sideBar.addClass('active');
+			if (!Boolean(sideMenuShow) && sideBar.hasClass('active'))
+				sideBar.removeClass('active');
+			function toggle() {
+				sideMenuShow = !sideMenuShow;
+				localStorage.setItem('sideMenuShow', sideMenuShow);
+				sideBar.toggleClass('active');
+			}
+			$('#sidebarShow').on('click', toggle);
+			$('#sidebarHide').on('click', toggle);
 
 		});
 	</script>
