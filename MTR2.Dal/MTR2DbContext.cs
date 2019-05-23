@@ -22,9 +22,10 @@ namespace MTR2.Dal
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
+			modelBuilder.Entity<User>().ToTable("Users");
 			modelBuilder.ApplyConfiguration(new RepoArticleEntityConfiguration(_seedService));
 			modelBuilder.ApplyConfiguration(new BlogArticleEntityConfiguration(_seedService));
-			modelBuilder.Entity<User>().ToTable("Users");
+			
 		}
 	}
 }

@@ -17,14 +17,15 @@ namespace MTR2.Web.Hosting
 			using (var scope = host.Services.CreateScope())
 			{
 				var serviceProvider = scope.ServiceProvider;
-				var context = serviceProvider.GetRequiredService<TContext>();
-				context.Database.Migrate();
-
 				var roleSeeder = serviceProvider.GetRequiredService<IRoleSeedService>();
 				await roleSeeder.SeedRoleAsync();
 
 				var userSeeder = serviceProvider.GetRequiredService<IUserSeedService>();
 				await userSeeder.SeedUserAsync();
+
+				var context = serviceProvider.GetRequiredService<TContext>();
+				context.Database.Migrate();
+
 			}
 
 			return host;
