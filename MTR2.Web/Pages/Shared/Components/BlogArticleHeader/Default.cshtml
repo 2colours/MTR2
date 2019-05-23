@@ -1,6 +1,6 @@
 ﻿@model MTR2.Dal.Dtos.BlogArticleDto
 
-<div class="card h-100">
+<div class="card">
 	<h4 class="card-header text-center">
 		<a asp-page="BlogPost" asp-route-id="@Model.Id">@Model.Title</a>
 	</h4>
@@ -12,11 +12,9 @@
 						<img src="~/images/posts/thumbnails/@(Model.Id).jpg" class="mw-100" alt="@Model.Title" title="@Model.Title" />
 					</a>
 					<p>
-						
-						<span class="text-primary">@Model.CreationDate.ToString("yyyy.MM.dd")</span>
+						<span class="text-primary">@Model.CreationDate.ToString("yyyy.MM.dd")</span>|
+						<span class="text-info">@Model.Author.Name</span>
 					</p>
-					<p class="text-info">@Model.Author.Name</p>
-					<p class="lead">@Model.Title</p>
 				</div>
 				<hr />
 				<p class="small">
