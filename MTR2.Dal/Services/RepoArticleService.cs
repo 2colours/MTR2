@@ -25,16 +25,11 @@ namespace MTR2.Dal.Services
 		public IEnumerable<RepoArticleDto> GetRepoArticles() => DbContext.RepoArticles.Select(RepoArticleSelector).OrderBy(r => r.Order);
 		public RepoArticleDto GetRepoArticle(int id) => DbContext.RepoArticles.Where(r => r.Id == id).Select(RepoArticleSelector).FirstOrDefault();
 
-		public int GetFreeId()
-		{
-			var maxId = DbContext.RepoArticles.Select(r => r.Id).Max();
-			return maxId + 1;
-		}
 
-		public void CreateRepoArticle(RepoArticleDto repoArticle)
+		public int CreateRepoArticle(RepoArticleDto repoArticle)
 		{
 			DbContext.RepoArticles.Add((RepoArticle)repoArticle);
-			DbContext.SaveChanges();
+			return DbContext.SaveChanges();
 		}
 
 		public void DeleteRepoArticle(int id)

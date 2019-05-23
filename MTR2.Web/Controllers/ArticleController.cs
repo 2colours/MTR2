@@ -25,10 +25,8 @@ namespace MTR2.Web.Controllers
 		}
 		public IActionResult UploadRepoArticle()
 		{
-			var id = RepoArticleService.GetFreeId();
-			RepoArticleService.CreateRepoArticle(new RepoArticleDto
+			var id = RepoArticleService.CreateRepoArticle(new RepoArticleDto
 			{
-				Id = id,
 				Content = "**DUMMY CONTENT**",
 				Order = RepoArticleService.GetRepoArticles().Count() + 1,
 				Title = "New Article"
