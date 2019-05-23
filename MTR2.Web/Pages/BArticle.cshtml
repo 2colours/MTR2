@@ -6,6 +6,6 @@
 <h2>
 @Model.BlogArticle.Title
 </h2>
-<img class="w-100" src="~/images/posts/thumbnails/@Model.BlogArticle.Id" />
+<img class="w-100" src="~/images/posts/thumbnails/@(Model.BlogArticle.Id).jpg" />
 <br />
 @Html.Raw(Model.RenderedContent)
