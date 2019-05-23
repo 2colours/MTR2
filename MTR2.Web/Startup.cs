@@ -28,7 +28,7 @@ namespace MTR2.Web
 		{
 			services.AddScoped<IRoleSeedService, RoleSeedService>();
 			services.AddScoped<IUserSeedService, UserSeedService>();
-			services.AddScoped<RepoArticleService>();
+			services.AddScoped<BlogArticleService>();
 			services.AddScoped<BlogArticleService>();
 			services.AddIdentity<User, IdentityRole<int>>()
 							.AddEntityFrameworkStores<MTR2DbContext>()
