@@ -174,10 +174,11 @@ Content=@"
 ",
 CreationDate=DateTime.Now,
 Id=1,
-Title="Welcome all!"
+Title="Welcome all!",
+ShortDescription="Ehn order to put it on screen easily :D"
 },
 new BlogArticle() {
-				  AuthorId=1,
+				  AuthorId=2,
 Content=@"
 ## Big Demo article...
 
@@ -188,7 +189,8 @@ eh
 ",
 CreationDate=DateTime.Now,
 Id=2,
-Title="Another post here"
+Title="Another post here",
+ShortDescription="In order to put it on screen easily :D"
 }
 		};
 	}

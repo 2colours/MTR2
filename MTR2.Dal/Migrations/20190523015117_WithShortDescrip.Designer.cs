@@ -4,14 +4,16 @@ using MTR2.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MTR2.Dal.Migrations
 {
     [DbContext(typeof(MTR2DbContext))]
-    partial class MTR2DbContextModelSnapshot : ModelSnapshot
+    [Migration("20190523015117_WithShortDescrip")]
+    partial class WithShortDescrip
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

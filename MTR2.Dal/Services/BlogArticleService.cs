@@ -21,7 +21,8 @@ namespace MTR2.Dal.Services
 			Author = b.Author,
 			CreationDate = b.CreationDate,
 			Title = b.Title,
-			Id=b.Id
+			Id=b.Id,
+			ShortDescription=b.ShortDescription
 		};
 		public IEnumerable<BlogArticleDto> GetBlogArticles() => DbContext.BlogArticles.Select(BlogArticleSelector).OrderByDescending(r => r.CreationDate);
 		public BlogArticleDto GetBlogArticle(int id) => DbContext.BlogArticles.Where(r => r.Id == id).Select(BlogArticleSelector).FirstOrDefault();
