@@ -26,6 +26,8 @@ namespace MTR2.Web.Pages
 			if (!PageContext.HttpContext.User.IsInRole(Roles.Administrators))
 				return RedirectToPage("/Repo");
 			RepoArticle = RepoArticleService.GetRepoArticle(id);
+			if (RepoArticle?.Order==null)
+				return RedirectToPage("/Repo");
 			return Page();
 
 		}

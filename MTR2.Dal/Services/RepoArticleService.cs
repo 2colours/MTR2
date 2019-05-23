@@ -28,8 +28,10 @@ namespace MTR2.Dal.Services
 
 		public int CreateRepoArticle(RepoArticleDto repoArticle)
 		{
-			DbContext.RepoArticles.Add((RepoArticle)repoArticle);
-			return DbContext.SaveChanges();
+			var toAdd = (RepoArticle)repoArticle;
+			DbContext.RepoArticles.Add(toAdd);
+			DbContext.SaveChanges();
+			return toAdd.Id;
 		}
 
 		public void DeleteRepoArticle(int id)
