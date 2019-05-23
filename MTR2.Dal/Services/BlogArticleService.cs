@@ -8,38 +8,21 @@ using System.Text;
 
 namespace MTR2.Dal.Services
 {
-	public class RepoArticleService
+	public class BlogArticleService
 	{
-		public RepoArticleService(MTR2DbContext dbContext)
+		public BlogArticleService(MTR2DbContext dbContext)
 		{
 			DbContext = dbContext;
 		}
 		public MTR2DbContext DbContext { get; }
-		public static Expression<Func<RepoArticle, RepoArticleDto>> RepoArticleSelector { get; } = r => new RepoArticleDto
+		public static Expression<Func<BlogArticle, BlogArticleDto>> BlogArticleSelector { get; } = r => new BlogArticleDto
 		{
 			Content = r.Content,
-			Id = r.Id,
-			Order = r.Order,
+			Author = r.Author,
+			CreationDate = r.CreationDate,
 			Title = r.Title
 		};
-		public IEnumerable<RepoArticleDto> GetRepoArticles() => DbContext.RepoArticles.Select(RepoArticleSelector).OrderBy(r => r.Order);
-		public RepoArticleDto GetRepoArticle(int id) => DbContext.RepoArticles.Where(r => r.Id == id).Select(RepoArticleSelector).FirstOrDefault();
-		public void DeleteRepoArticle(int id) {
-			var repoArticle=DbContext.RepoArticles.Where(r => r.Id == id).First();
-			if (repoArticle == null)
-				return;
-			DbContext.RepoArticles.Remove(repoArticle);
-			DbContext.SaveChanges();
-		}
-		public void EditRepoArticle(RepoArticleDto repoArticle)
-		{
-			var article = DbContext.RepoArticles.Where(a=>a.Id==repoArticle.Id).First();
-			if (article == null)
-				return;
-			article.Content = repoArticle.Content;
-			article.Title = repoArticle.Title;
-			article.Order = repoArticle.Order;
-			DbContext.SaveChanges();
-		}
+		public IEnumerable<BlogArticleDto> GetBlogArticles() => DbContext.BlogArticles.Select(BlogArticleSelector).OrderByDescending(r => r.CreationDate);
+		public BlogArticleDto GetBlogArticle(int id) => DbContext.BlogArticles.Where(r => r.Id == id).Select(BlogArticleSelector).FirstOrDefault();
 	}
 }
