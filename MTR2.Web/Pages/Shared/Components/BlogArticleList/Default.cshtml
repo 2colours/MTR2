@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<MTR2.Dal.Dtos.BlogArticleDto>
 
-@foreach (var blogArticle in Model)
-{
-	<vc:blog-article-header post-dto="blogArticle"></vc:blog-article-header>
-}
+<div class="row">
+	@foreach (var blogArticle in Model)
+	{
+	<div class="col-md-3 col-sm-4">
+		<vc:blog-article-header post-dto="blogArticle"></vc:blog-article-header>
+	</div>
+	}
+</div>
