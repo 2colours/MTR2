@@ -7,11 +7,15 @@ using MTR2.Dal.Entities;
 
 namespace MTR2.Dal.SeedService
 {
-	public class SeedService : ISeedService
+	public class ArticleSeedService : IArticleSeedService
 	{
+		public ArticleSeedService(MTR2DbContext dbContext)
+		{
+			DbContext = dbContext;
+		}
+		public MTR2DbContext DbContext { get; }
 		public IList<RepoArticle> RepoArticles { get; } = new[] {
 new RepoArticle() {
-				  Id=1,
 				Order=1,
 Content=@"## The Alphabet
 ---
@@ -92,7 +96,6 @@ That's it for now. Check out [wikipedia's article on pronunciation](https://en.w
 Title="ABC + Vowel Harmony"
 },
 new RepoArticle {
-Id=2,
 Order=2,
 Content=@"## Phrases & Words
 ---
@@ -173,7 +176,6 @@ Content=@"
 ## Big Demo article...
 ",
 CreationDate=DateTime.Now,
-Id=1,
 Title="Welcome all!",
 ShortDescription="Ehn order to put it on screen easily :D"
 },
@@ -188,10 +190,16 @@ a
 eh
 ",
 CreationDate=DateTime.Now,
-Id=2,
 Title="Another post here",
 ShortDescription="In order to put it on screen easily :D"
 }
 		};
+
+		public void SeedArticles()
+		{
+			DbContext.BlogArticles.AddRange(BlogArticles);
+			DbContext.RepoArticles.AddRange(RepoArticles);
+			DbContext.SaveChanges();
+		}
 	}
 }

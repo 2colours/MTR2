@@ -28,6 +28,7 @@ namespace MTR2.Web
 		{
 			services.AddScoped<IRoleSeedService, RoleSeedService>();
 			services.AddScoped<IUserSeedService, UserSeedService>();
+			services.AddScoped<IArticleSeedService, ArticleSeedService>();
 			services.AddScoped<RepoArticleService>();
 			services.AddScoped<BlogArticleService>();
 			services.AddIdentity<User, IdentityRole<int>>()
@@ -35,7 +36,7 @@ namespace MTR2.Web
 							.AddDefaultTokenProviders();
 			services.AddDbContext<MTR2DbContext>(o=>o.UseSqlServer(
 				Configuration.GetConnectionString(nameof(MTR2DbContext))));
-			services.AddTransient<ISeedService, SeedService>();
+			
 			services.Configure<CookiePolicyOptions>(options =>
 			{
 				// This lambda determines whether user consent for non-essential cookies is needed for a given request.
