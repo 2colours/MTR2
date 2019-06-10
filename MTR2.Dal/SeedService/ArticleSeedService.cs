@@ -197,8 +197,10 @@ ShortDescription="In order to put it on screen easily :D"
 
 		public void SeedArticles()
 		{
-			DbContext.BlogArticles.AddRange(BlogArticles);
-			DbContext.RepoArticles.AddRange(RepoArticles);
+			if (!DbContext.BlogArticles.Any())
+				DbContext.BlogArticles.AddRange(BlogArticles);
+			if (!DbContext.RepoArticles.Any())
+				DbContext.RepoArticles.AddRange(RepoArticles);
 			DbContext.SaveChanges();
 		}
 	}
