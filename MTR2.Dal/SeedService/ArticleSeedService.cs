@@ -201,7 +201,8 @@ ShortDescription="In order to put it on screen easily :D"
 				DbContext.BlogArticles.AddRange(BlogArticles);
 			if (!DbContext.RepoArticles.Any())
 				DbContext.RepoArticles.AddRange(RepoArticles);
-			DbContext.SaveChanges();
+			if (DbContext.ChangeTracker.HasChanges())
+				DbContext.SaveChanges();
 		}
 	}
 }
