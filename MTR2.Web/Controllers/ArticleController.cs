@@ -31,7 +31,7 @@ namespace MTR2.Web.Controllers
 				Order = RepoArticleService.GetRepoArticles().Count() + 1,
 				Title = "New Article"
 			});
-			return RedirectToPage($"/EditRepoArticle", new { id = id });
+			return RedirectToPage($"/EditRepoArticle", new { id });
 		}
 	}
 }

@@ -8,9 +8,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="text-center w-100">
-					<a asp-page="Book" asp-route-id="@Model.Id">
 						<img src="~/images/posts/thumbnails/@(Model.Id).jpg" class="mw-100" alt="@Model.Title" title="@Model.Title" />
-					</a>
 					<p>
 						<span class="text-primary">@Model.CreationDate.ToString("yyyy.MM.dd")</span> |
 						<span class="text-info">@Model.Author.Name</span>
